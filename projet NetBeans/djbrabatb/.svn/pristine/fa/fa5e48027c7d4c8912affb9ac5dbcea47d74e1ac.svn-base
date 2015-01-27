@@ -1,0 +1,91 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package persistence;
+
+import persistence.Compte;
+import java.io.Serializable;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
+
+/**
+ *
+ * @author retina
+ */
+@Entity
+@Table(name = "COMPTECOURANT")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "Comptecourant.findAll", query = "SELECT c FROM Comptecourant c"),
+    @NamedQuery(name = "Comptecourant.findByFkComptecourantid", query = "SELECT c FROM Comptecourant c WHERE c.fkComptecourantid = :fkComptecourantid")})
+public class CompteCourant implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "FK_COMPTECOURANTID")
+    private Integer fkComptecourantid;
+    @JoinColumn(name = "FK_COMPTECOURANTID", referencedColumnName = "COMPTEID", insertable = false, updatable = false)
+    @OneToOne(optional = false)
+    private Compte compte;
+
+    public CompteCourant() {
+    }
+
+    public CompteCourant(Integer fkComptecourantid) {
+        this.fkComptecourantid = fkComptecourantid;
+    }
+
+    public Integer getFkComptecourantid() {
+        return fkComptecourantid;
+    }
+
+    public void setFkComptecourantid(Integer fkComptecourantid) {
+        this.fkComptecourantid = fkComptecourantid;
+    }
+
+    public Compte getCompte() {
+        return compte;
+    }
+
+    public void setCompte(Compte compte) {
+        this.compte = compte;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (fkComptecourantid != null ? fkComptecourantid.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof CompteCourant)) {
+            return false;
+        }
+        CompteCourant other = (CompteCourant) object;
+        if ((this.fkComptecourantid == null && other.fkComptecourantid != null) || (this.fkComptecourantid != null && !this.fkComptecourantid.equals(other.fkComptecourantid))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "entities.Comptecourant[ fkComptecourantid=" + fkComptecourantid + " ]";
+    }
+    
+}
