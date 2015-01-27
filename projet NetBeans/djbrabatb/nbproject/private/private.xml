@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/mohammedamine/OneDrive/Documents/Master%202%20MIAGE/Architecture%20des%20composants%20d'entreprise/djbrabatb/djbrabatb/src/java/persistence/CompteCourant.java</file>
+            <file>file:/C:/Users/mohammedamine/OneDrive/Documents/Master%202%20MIAGE/Architecture%20des%20composants%20d'entreprise/djbrabatb/djbrabatb/src/java/persistence/Client.java</file>
+            <file>file:/C:/Users/mohammedamine/OneDrive/Documents/Master%202%20MIAGE/Architecture%20des%20composants%20d'entreprise/djbrabatb/djbrabatb/src/java/persistence/Administrateur.java</file>
+            <file>file:/C:/Users/mohammedamine/OneDrive/Documents/Master%202%20MIAGE/Architecture%20des%20composants%20d'entreprise/djbrabatb/djbrabatb/src/java/persistence/Utilisateur.java</file>
+            <file>file:/C:/Users/mohammedamine/OneDrive/Documents/Master%202%20MIAGE/Architecture%20des%20composants%20d'entreprise/djbrabatb/djbrabatb/src/java/persistence/ActionUtilisateurAvecArgentDepot.java</file>
+            <file>file:/C:/Users/mohammedamine/OneDrive/Documents/Master%202%20MIAGE/Architecture%20des%20composants%20d'entreprise/djbrabatb/djbrabatb/src/java/persistence/ActionUtilisateurAvecArgentTransfert.java</file>
+            <file>file:/C:/Users/mohammedamine/OneDrive/Documents/Master%202%20MIAGE/Architecture%20des%20composants%20d'entreprise/djbrabatb/djbrabatb/src/java/persistence/ActionUtilisateurSansArgent.java</file>
+            <file>file:/C:/Users/mohammedamine/OneDrive/Documents/Master%202%20MIAGE/Architecture%20des%20composants%20d'entreprise/djbrabatb/djbrabatb/src/java/persistence/CompteEpargne.java</file>
+            <file>file:/C:/Users/mohammedamine/OneDrive/Documents/Master%202%20MIAGE/Architecture%20des%20composants%20d'entreprise/djbrabatb/djbrabatb/src/java/persistence/Compte.java</file>
+            <file>file:/C:/Users/mohammedamine/OneDrive/Documents/Master%202%20MIAGE/Architecture%20des%20composants%20d'entreprise/djbrabatb/djbrabatb/src/java/persistence/ActionUtilisateur.java</file>
+            <file>file:/C:/Users/mohammedamine/OneDrive/Documents/Master%202%20MIAGE/Architecture%20des%20composants%20d'entreprise/djbrabatb/djbrabatb/src/java/persistence/ActionUtilisateurAvecArgentRetrait.java</file>
+            <file>file:/C:/Users/mohammedamine/OneDrive/Documents/Master%202%20MIAGE/Architecture%20des%20composants%20d'entreprise/djbrabatb/djbrabatb/src/java/persistence/ActionUtilisateurAvecArgent.java</file>
+            <file>file:/C:/Users/mohammedamine/OneDrive/Documents/Master%202%20MIAGE/Architecture%20des%20composants%20d'entreprise/djbrabatb/djbrabatb/src/conf/persistence.xml</file>
+        </group>
+    </open-files>
+</project-private>
