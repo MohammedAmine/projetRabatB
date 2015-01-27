@@ -52,20 +52,26 @@ public abstract class Utilisateur implements Serializable {
      * utilisateur Login
      */
     @Size(max = 50)
+    @Column
     private String utilisateurLogin;
     
     /**
      * date de création de l'utilisateur
      */
     @Temporal(TemporalType.DATE)
+    @Column
     private Date utilisateurDateCreation;
     
     
-    //heritage vers Client
+    /**
+     * heritage vers Client
+     */
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "utilisateur")
     private Client client;
     
-    //heritage vers Administrateur
+    /**
+     * heritage vers Administrateur
+     */
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "utilisateur")
     private Administrateur administrateur;
     

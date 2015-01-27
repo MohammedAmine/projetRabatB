@@ -12,19 +12,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author mohammedamine
  */
 @Entity
+@Table(name = "ACTIONUTILISATEURAVECARGENTTRANSFERT")
 public class ActionUtilisateurAvecArgentTransfert extends ActionUtilisateurAvecArgent implements Serializable {
 
     public ActionUtilisateurAvecArgentTransfert() {
     }
     private static final long serialVersionUID = 1L;
     
-    //heritage
+    /**
+     * héritage depuis ActionUtilisateurAvecArgent
+     */
     @OneToOne
     private ActionUtilisateurAvecArgent actionUtilisateurAvecArgent;
 }

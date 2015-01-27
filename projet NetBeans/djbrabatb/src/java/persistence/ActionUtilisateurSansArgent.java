@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -21,6 +23,11 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "ACTIONUTILISATEURSANSARGENT")
+@NamedQueries({
+@NamedQuery(name = "ActionUtilisateurSansArgent.findAll", query = "SELECT c FROM ActionUtilisateurSansArgent c"),
+@NamedQuery(name = "ActionUtilisateurSansArgent.findByActionUtilisateurSansArgentID", query = "SELECT c FROM ActionUtilisateurSansArgent c WHERE c.actionUtilisateurID = :actionUtilisateurSansArgentID"),
+@NamedQuery(name = "ActionUtilisateurSansArgent.findByActionUtilisateurSansArgentProprietaireID", query = "SELECT c FROM ActionUtilisateurSansArgent c WHERE c.actionUtilisateurProprietaire = :actionUtilisateurSansArgentProprietaire")
+})
 public class ActionUtilisateurSansArgent extends ActionUtilisateur implements Serializable {
     
     /**

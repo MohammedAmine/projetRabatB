@@ -25,20 +25,21 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "COMPTECOURANT")
+@NamedQueries({
+    @NamedQuery(name = "Comptecourant.findAll", query = "SELECT c FROM CompteCourant c"),
+    @NamedQuery(name = "Comptecourant.findByCompteCourantID", query = "SELECT c FROM CompteCourant c WHERE c.compteID = :compteCourantID")
+    })
 public class CompteCourant extends Compte implements Serializable {
+
     private static final long serialVersionUID = 1L;
-    
+
     /**
      * héritage depuis Compte
      */
     @OneToOne
     Compte compte;
-    
-    
 
     public CompteCourant() {
     }
 
-    
-    
 }

@@ -9,48 +9,59 @@ import persistence.CompteCourant;
 import persistence.CompteEpargne;
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Basic;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
-
+/**
+ *
+ * @author mohammedamine
+ */
 @Entity
 @Table(name = "COMPTE")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Compte.findAll", query = "SELECT c FROM Compte c"),
-    @NamedQuery(name = "Compte.findByCompteid", query = "SELECT c FROM Compte c WHERE c.compteid = :compteid"),
-    @NamedQuery(name = "Compte.findByComptedatecreation", query = "SELECT c FROM Compte c WHERE c.comptedatecreation = :comptedatecreation"),
-    @NamedQuery(name = "Compte.findByComptesolde", query = "SELECT c FROM Compte c WHERE c.comptesolde = :comptesolde"),
-    @NamedQuery(name = "Compte.findByCompteetat", query = "SELECT c FROM Compte c WHERE c.compteetat = :compteetat")})
+    @NamedQuery(name = "Compte.findByCompteID", query = "SELECT c FROM Compte c WHERE c.compteID = :compteID")})
 public class Compte implements Serializable {
+    
     private static final long serialVersionUID = 1L;
+    
+    public Compte() {
+    }
+    
+    /**
+     * ID du compte
+     */
     @Id
     @NotNull
     @Column
     private Integer compteID;
     
+    /**
+     * date de création du Compte
+     */
     @Column
     @Temporal(TemporalType.DATE)
     private Date compteDateCreation;
    
+    /**
+     * solde du compte
+     */
     @Column
     private Float compteSolde;
     
-    @Size(max = 255)
-    @Column
-    private String compteEtat;
     
     /**
      * héritage vers CompteEpargne
@@ -65,11 +76,22 @@ public class Compte implements Serializable {
     private CompteCourant compteCourant;
     
     
+    /**
+     * le client propriétaire du compte
+     */
+    @ManyToOne
+    private Client compteProprietaire;
     
+    
+    /**
+     * 
+     * liste des actions su le compte 
+     */
+    @OneToMany(mappedBy = "actionUtilisateurCompte")
+    private List<ActionUtilisateur> compteListeActionsUtilisateurs;
     
 
-    public Compte() {
-    }
+    
 
    
     @Override

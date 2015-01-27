@@ -16,6 +16,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -28,6 +30,11 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "ACTIONUTILISATEUR")
+@NamedQueries({
+    @NamedQuery(name = "ActionUtilisateur.findAll", query = "SELECT c FROM ActionUtilisateur c"),
+@NamedQuery(name = "ActionUtilisateur.findByActionUtilisateurID", query = "SELECT c FROM ActionUtilisateur c WHERE c.actionUtilisateurID = :actionUtilisateurID"),
+@NamedQuery(name = "ActionUtilisateur.findByactionUtilisateurProprietaireID", query = "SELECT c FROM Utilisateur c WHERE c.utilisateurID = :actionUtilisateurProprietaireID")
+})
 public abstract class ActionUtilisateur implements Serializable {
 
     public ActionUtilisateur() {
@@ -35,21 +42,38 @@ public abstract class ActionUtilisateur implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
+    /**
+     * ID de ActionUtilisateur
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int actionUtilisateurID;
     
-    
+    /**
+     * date de ActionUtilisateur
+     */
     @Temporal(TemporalType.DATE)
+    @Column
     private Date actionUtilisateurDate;
     
-    
+    /**
+     * heure de ActionUtilisateur
+     */
+    @Column
     @Temporal(TemporalType.TIME)
     private Date actionUtilisateurTime;
     
+    /**
+     * type de ActionUtilisateur
+     */
+    @Column
     @Size(max = 50)
     private String actionUtilisateurType;
     
+    /**
+     * type de l'utilisateur propriétaire de ActionUtilisateur
+     */
+    @Column
     @Size(max = 50)
     private String actionUtilisateurProprietaireType;
     
@@ -66,10 +90,15 @@ public abstract class ActionUtilisateur implements Serializable {
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "actionUtilisateur")
     private ActionUtilisateurAvecArgent actionUtilisateurAvecArgent;
     
-    
+    /**
+     * Utilisateur qui est le proprietaire de ActionUtilisateur
+     */
     @ManyToOne
     private Utilisateur actionUtilisateurProprietaire;
     
+    /**
+     * Compte sur lequel ActionUtilisateur est effectuée
+     */
     @ManyToOne
     private Compte actionUtilisateurCompte;
     

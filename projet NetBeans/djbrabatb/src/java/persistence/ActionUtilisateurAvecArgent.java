@@ -48,18 +48,14 @@ public abstract class ActionUtilisateurAvecArgent extends ActionUtilisateur impl
     
     /**
      * heritage vers ActionUtilisateurAvecArgentTransfert
-     */
-    
-    /**
-     * 
-     */
+     */    
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "actionUtilisateurAvecArgent")
     private ActionUtilisateurAvecArgentTransfert actionUtilisateurAvecArgentTransfert;
     
     /**
-     * 
+     * Le montant de l'ActionUtilisateurAvecArgent
      */
     @Column
-    private float ActionAvecArgentMontant;
+    private float ActionUtilisateurAvecArgentMontant;
 
 }

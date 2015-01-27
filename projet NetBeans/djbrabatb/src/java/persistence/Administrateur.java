@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -20,6 +22,9 @@ import javax.persistence.Table;
 @Entity
 
 @Table(name = "ADMINISTRATEUR")
+@NamedQueries({
+    @NamedQuery(name = "Administrateur.findAll", query = "SELECT a FROM Administrateur a"),
+    @NamedQuery(name = "Administrateur.findByAdministrateurID", query = "SELECT a FROM Administrateur a WHERE a.utilisateurID = :utilisateurID")})
 public class Administrateur extends Utilisateur implements Serializable {
 
     /**
