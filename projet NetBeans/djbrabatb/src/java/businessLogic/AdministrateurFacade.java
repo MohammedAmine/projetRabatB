@@ -10,6 +10,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import persistence.Administrateur;
+import persistence.CompteCourant;
 
 /**
  *
@@ -27,6 +28,10 @@ public class AdministrateurFacade extends AbstractFacade<Administrateur> impleme
 
     public AdministrateurFacade() {
         super(Administrateur.class);
+    }
+    
+    public void transfererArgent (CompteCourant compteSource,CompteCourant compteCible, float montantTransfert){
+        
     }
     
 }

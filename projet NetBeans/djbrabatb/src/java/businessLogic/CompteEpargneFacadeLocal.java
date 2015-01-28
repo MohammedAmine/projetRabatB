@@ -30,5 +30,9 @@ public interface CompteEpargneFacadeLocal {
     List<CompteEpargne> findRange(int[] range);
 
     int count();
+
+    public void calculerTotalCompteEpargne();
+
+    public void fermerCompteEpargne();
     
 }

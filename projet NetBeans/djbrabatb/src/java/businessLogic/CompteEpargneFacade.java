@@ -29,4 +29,14 @@ public class CompteEpargneFacade extends AbstractFacade<CompteEpargne> implement
         super(CompteEpargne.class);
     }
     
+    @Override
+    public void calculerTotalCompteEpargne(){
+        
+    }
+    
+    @Override
+    public void fermerCompteEpargne(){
+        
+    }
+    
 }

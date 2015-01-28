@@ -8,6 +8,7 @@ package businessLogic;
 
 import java.util.List;
 import javax.ejb.Local;
+import persistence.CompteCourant;
 import persistence.Utilisateur;
 
 /**
@@ -30,5 +31,7 @@ public interface UtilisateurFacadeLocal {
     List<Utilisateur> findRange(int[] range);
 
     int count();
+
+    public void transfererArgent(CompteCourant compteSource, CompteCourant compteCible, float montantTransfert);
     
 }

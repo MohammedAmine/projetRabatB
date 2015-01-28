@@ -30,5 +30,7 @@ public interface CompteFacadeLocal {
     List<Compte> findRange(int[] range);
 
     int count();
+
+    public void deposerArgentCompte(Compte compteDestination, float depotMontant);
     
 }

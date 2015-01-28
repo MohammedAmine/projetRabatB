@@ -29,4 +29,9 @@ public class CompteFacade extends AbstractFacade<Compte> implements CompteFacade
         super(Compte.class);
     }
     
+    @Override
+    public void deposerArgentCompte(Compte compteDestination,float depotMontant){
+        
+    }
+    
 }

@@ -30,5 +30,7 @@ public interface CompteCourantFacadeLocal {
     List<CompteCourant> findRange(int[] range);
 
     int count();
+
+    public void retirerArgentCompteCourant(CompteCourant CompteSource, float montantRetrait);
     
 }

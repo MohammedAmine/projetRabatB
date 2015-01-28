@@ -29,4 +29,9 @@ public class CompteCourantFacade extends AbstractFacade<CompteCourant> implement
         super(CompteCourant.class);
     }
     
+    @Override
+    public void retirerArgentCompteCourant(CompteCourant CompteSource, float montantRetrait){
+        
+    }
+    
 }
