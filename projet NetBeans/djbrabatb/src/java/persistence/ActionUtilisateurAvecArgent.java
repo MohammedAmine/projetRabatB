@@ -6,56 +6,46 @@
 package persistence;
 
 import java.io.Serializable;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
+import java.util.Date;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 /**
- *
- * @author mohammedamine
+ * classe ActionUtilisateurAvecArgent
  */
 @Entity
-@Table(name = "ACTIONUTILISATEURAVECARGENT")
+@DiscriminatorValue("AAR")
+
 public abstract class ActionUtilisateurAvecArgent extends ActionUtilisateur implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * 
+     */
     public ActionUtilisateurAvecArgent() {
+    }
+    
+    /**
+     * 
+     * @param ActionUtilisateurAvecArgentMontant
+     * @param actionUtilisateurDate
+     * @param actionUtilisateurTime
+     * @param actionUtilisateurType
+     * @param actionUtilisateurProprietaireType
+     * @param actionUtilisateurProprietaire
+     */
+    public ActionUtilisateurAvecArgent(float ActionUtilisateurAvecArgentMontant, Date actionUtilisateurDate, Date actionUtilisateurTime, String actionUtilisateurType, String actionUtilisateurProprietaireType, Utilisateur actionUtilisateurProprietaire) {
+       
+        super(actionUtilisateurDate, actionUtilisateurTime, actionUtilisateurType, actionUtilisateurProprietaireType, actionUtilisateurProprietaire);
+        
+        this.ActionUtilisateurAvecArgentMontant = ActionUtilisateurAvecArgentMontant;
     }
 
     /**
-    *heritage depuis ActionUtilisateur
-    */
-    @OneToOne
-    private ActionUtilisateur actionUtilisateur;
-    
-    /**
-     * heritage vers ActionUtilisateur
+     * montant
      */
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "actionUtilisateurAvecArgent")
-    private ActionUtilisateur actionUtilisateurAvecArgentDepot;
-    
-    /**
-     * heritage vers ActionUtilisateurAvecArgentRetrait
-     */
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "actionUtilisateurAvecArgent")
-    private ActionUtilisateurAvecArgentRetrait actionUtilisateurAvecArgentRetrait;
-    
-    /**
-     * heritage vers ActionUtilisateurAvecArgentTransfert
-     */    
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "actionUtilisateurAvecArgent")
-    private ActionUtilisateurAvecArgentTransfert actionUtilisateurAvecArgentTransfert;
-    
-    /**
-     * Le montant de l'ActionUtilisateurAvecArgent
-     */
-    @Column
     private float ActionUtilisateurAvecArgentMontant;
+    
 
 }

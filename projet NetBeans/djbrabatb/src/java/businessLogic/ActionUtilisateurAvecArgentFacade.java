@@ -16,7 +16,7 @@ import persistence.ActionUtilisateurAvecArgent;
  * @author mohammedamine
  */
 @Stateless
-public class ActionUtilisateurAvecArgentFacade extends AbstractFacade<ActionUtilisateurAvecArgent> implements ActionUtilisateurAvecArgentFacadeLocal {
+public class ActionUtilisateurAvecArgentFacade extends AbstractFacade<ActionUtilisateurAvecArgent> {
     @PersistenceContext(unitName = "djbrabatbPU")
     private EntityManager em;
 

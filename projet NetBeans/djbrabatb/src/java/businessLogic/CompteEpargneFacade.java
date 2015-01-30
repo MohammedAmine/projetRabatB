@@ -16,7 +16,7 @@ import persistence.CompteEpargne;
  * @author mohammedamine
  */
 @Stateless
-public class CompteEpargneFacade extends AbstractFacade<CompteEpargne> implements CompteEpargneFacadeLocal {
+public class CompteEpargneFacade extends AbstractFacade<CompteEpargne> {
     @PersistenceContext(unitName = "djbrabatbPU")
     private EntityManager em;
 
@@ -27,16 +27,6 @@ public class CompteEpargneFacade extends AbstractFacade<CompteEpargne> implement
 
     public CompteEpargneFacade() {
         super(CompteEpargne.class);
-    }
-    
-    @Override
-    public void calculerTotalCompteEpargne(){
-        
-    }
-    
-    @Override
-    public void fermerCompteEpargne(){
-        
     }
     
 }

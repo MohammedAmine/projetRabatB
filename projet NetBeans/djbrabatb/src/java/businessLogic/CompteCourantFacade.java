@@ -16,7 +16,7 @@ import persistence.CompteCourant;
  * @author mohammedamine
  */
 @Stateless
-public class CompteCourantFacade extends AbstractFacade<CompteCourant> implements CompteCourantFacadeLocal {
+public class CompteCourantFacade extends AbstractFacade<CompteCourant> {
     @PersistenceContext(unitName = "djbrabatbPU")
     private EntityManager em;
 
@@ -27,11 +27,6 @@ public class CompteCourantFacade extends AbstractFacade<CompteCourant> implement
 
     public CompteCourantFacade() {
         super(CompteCourant.class);
-    }
-    
-    @Override
-    public void retirerArgentCompteCourant(CompteCourant CompteSource, float montantRetrait){
-        
     }
     
 }

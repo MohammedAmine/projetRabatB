@@ -7,6 +7,8 @@
 package persistence;
 
 import java.io.Serializable;
+import java.util.Date;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,21 +22,39 @@ import javax.persistence.Table;
  * @author mohammedamine
  */
 @Entity
-@Table(name = "ACTIONUTILISATEURAVECARGENTDEPOT")
+@DiscriminatorValue("DPT")
+
 public class ActionUtilisateurAvecArgentDepot extends ActionUtilisateurAvecArgent implements Serializable {
 
+     private static final long serialVersionUID = 1L;
+     
+     /**
+      * 
+      */
     public ActionUtilisateurAvecArgentDepot() {
     }
-    private static final long serialVersionUID = 1L;
-    
+
     /**
-     * héritage depuis ActionUtilisateurAvecArgent
+     * 
+     * @param actionAvecArgentDepotCompteTO
+     * @param ActionUtilisateurAvecArgentMontant
+     * @param actionUtilisateurDate
+     * @param actionUtilisateurTime
+     * @param actionUtilisateurType
+     * @param actionUtilisateurProprietaireType
+     * @param actionUtilisateurProprietaire 
      */
-    @OneToOne
-    private ActionUtilisateurAvecArgent actionUtilisateurAvecArgent;
+    public ActionUtilisateurAvecArgentDepot(Compte actionAvecArgentDepotCompteTO, float ActionUtilisateurAvecArgentMontant, Date actionUtilisateurDate, Date actionUtilisateurTime, String actionUtilisateurType, String actionUtilisateurProprietaireType, Utilisateur actionUtilisateurProprietaire) {
+        super(ActionUtilisateurAvecArgentMontant, actionUtilisateurDate, actionUtilisateurTime, actionUtilisateurType, actionUtilisateurProprietaireType, actionUtilisateurProprietaire);
+        this.actionAvecArgentDepotCompteTO = actionAvecArgentDepotCompteTO;
+    }
+    
+    
+   
     
     /**
      * compte cible pour le depot d'argent
      */
+    @OneToOne
     private Compte actionAvecArgentDepotCompteTO;
 }

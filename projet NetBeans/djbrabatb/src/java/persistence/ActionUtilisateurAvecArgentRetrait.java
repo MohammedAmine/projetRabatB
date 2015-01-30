@@ -1,39 +1,47 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package persistence;
 
 import java.io.Serializable;
+import java.util.Date;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 /**
- *
- * @author mohammedamine
+ * classe ActionUtilisateurAvecArgentRetrait
  */
 @Entity
-@Table(name = "ACTIONUTILISATEURAVECARGENTRETRAIT")
+@DiscriminatorValue("RTR")
+
 public class ActionUtilisateurAvecArgentRetrait extends ActionUtilisateurAvecArgent implements Serializable {
 
-    public ActionUtilisateurAvecArgentRetrait() {
-    }
     private static final long serialVersionUID = 1L;
     
     /**
-     * héritage depuis ActionUtilisateurAvecArgent
+     * 
      */
-    @OneToOne
-    private ActionUtilisateurAvecArgent actionUtilisateurAvecArgent;
+    public ActionUtilisateurAvecArgentRetrait() {
+    }
+
+    /**
+     * 
+     * @param actionAvecArgentDepotCompteFROM
+     * @param ActionUtilisateurAvecArgentMontant
+     * @param actionUtilisateurDate
+     * @param actionUtilisateurTime
+     * @param actionUtilisateurType
+     * @param actionUtilisateurProprietaireType
+     * @param actionUtilisateurProprietaire 
+     */
+    public ActionUtilisateurAvecArgentRetrait(Compte actionAvecArgentDepotCompteFROM, float ActionUtilisateurAvecArgentMontant, Date actionUtilisateurDate, Date actionUtilisateurTime, String actionUtilisateurType, String actionUtilisateurProprietaireType, Utilisateur actionUtilisateurProprietaire) {
+        super(ActionUtilisateurAvecArgentMontant, actionUtilisateurDate, actionUtilisateurTime, actionUtilisateurType, actionUtilisateurProprietaireType, actionUtilisateurProprietaire);
+        this.actionAvecArgentDepotCompteFROM = actionAvecArgentDepotCompteFROM;
+    }
+    
     
     /**
      * compte source pour le depot retrait
      */
+    @OneToOne
     private Compte actionAvecArgentDepotCompteFROM;
 }

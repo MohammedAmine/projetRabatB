@@ -19,9 +19,12 @@
                 <br />
                 <h:form>
                     <p:outputLabel for="loginInputText" value="Entrez votre Login : "/>
-                    <p:inputText id="loginInputText" required="true"/>
+                    <p:inputText id="loginInputText" required="true" value="#{loginManagedBean.requesterUtilisateurLogin}"/>
+                    
+                    <h:message for="loginInputText" />
+                    
                     <br />
-                    <h:commandButton  styleClass="ui-priority-primary" value="Log In"/>
+                    <h:commandButton  styleClass="ui-priority-primary" value="Log In" action="#{loginManagedBean.authentifier}"/>
                 </h:form>
             </ui:define>
 

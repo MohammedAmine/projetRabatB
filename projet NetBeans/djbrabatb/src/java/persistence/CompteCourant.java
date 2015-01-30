@@ -1,30 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package persistence;
 
-import persistence.Compte;
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
+import java.util.Date;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
- * @author retina
+ * classe CompteCourant
  */
 @Entity
-@Table(name = "COMPTECOURANT")
+@DiscriminatorValue("COR")
+
 @NamedQueries({
     @NamedQuery(name = "Comptecourant.findAll", query = "SELECT c FROM CompteCourant c"),
     @NamedQuery(name = "Comptecourant.findByCompteCourantID", query = "SELECT c FROM CompteCourant c WHERE c.compteID = :compteCourantID")
@@ -32,14 +21,25 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class CompteCourant extends Compte implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    
     /**
-     * héritage depuis Compte
+     * constructeur sans paramaètres
      */
-    @OneToOne
-    Compte compte;
-
     public CompteCourant() {
     }
+
+    /**
+     * constructeur pour date de création, solde, et propriétaire
+     * @param compteDateCreation date de création
+     * @param compteSolde solde
+     * @param compteProprietaire propiétaire
+     */
+    public CompteCourant(Date compteDateCreation, Float compteSolde,Client compteProprietaire) {
+        
+        super(compteDateCreation, compteSolde, compteProprietaire);
+    }
+    
+    
+    
 
 }

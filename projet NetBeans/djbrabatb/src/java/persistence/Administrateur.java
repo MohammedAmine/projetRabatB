@@ -3,38 +3,42 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package persistence;
 
 import java.io.Serializable;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 /**
  *
- * @author mohammedamine
+ * classe Administrateur
  */
 @Entity
+@DiscriminatorValue("ADM")
 
-@Table(name = "ADMINISTRATEUR")
-@NamedQueries({
-    @NamedQuery(name = "Administrateur.findAll", query = "SELECT a FROM Administrateur a"),
-    @NamedQuery(name = "Administrateur.findByAdministrateurID", query = "SELECT a FROM Administrateur a WHERE a.utilisateurID = :utilisateurID")})
 public class Administrateur extends Utilisateur implements Serializable {
-
-    /**
-     * heritage depuis utilisateur
-     */
-    @OneToOne
-    private Utilisateur utilisateur;
-
-    public Administrateur() {
-    }
+    
     private static final long serialVersionUID = 1L;
 
+    /**
+     * 
+     */
+    public Administrateur() {    
+        
+    }
+
+    /**
+     *
+     * @param utilisateurLogin 
+     */
+    public Administrateur(String utilisateurLogin) {
+        super(utilisateurLogin,"ADMINISTRATEUR");
+    }
+    
+    
+    
 }

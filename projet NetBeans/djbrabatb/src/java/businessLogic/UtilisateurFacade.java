@@ -9,7 +9,6 @@ package businessLogic;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import persistence.CompteCourant;
 import persistence.Utilisateur;
 
 /**
@@ -17,7 +16,7 @@ import persistence.Utilisateur;
  * @author mohammedamine
  */
 @Stateless
-public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements UtilisateurFacadeLocal {
+public class UtilisateurFacade extends AbstractFacade<Utilisateur> {
     @PersistenceContext(unitName = "djbrabatbPU")
     private EntityManager em;
 
@@ -28,17 +27,6 @@ public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements Ut
 
     public UtilisateurFacade() {
         super(Utilisateur.class);
-    }
-    
-    /**
-     * Cette méthode permet de transferer de l'argent entre deux comptes
-     * @param compteSource
-     * @param compteCible
-     * @param montantTransfert
-     */
-    @Override
-    public void transfererArgent (CompteCourant compteSource,CompteCourant compteCible, float montantTransfert){
-        
     }
     
 }

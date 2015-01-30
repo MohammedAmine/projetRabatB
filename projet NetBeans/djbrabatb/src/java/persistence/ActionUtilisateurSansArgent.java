@@ -1,45 +1,54 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package persistence;
 
 import java.io.Serializable;
+import java.util.Date;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 /**
- *
- * @author mohammedamine
- * ActionUtilisateurSansArgent
+ * classe ActionUtilisateurSansArgent
  */
 @Entity
-@Table(name = "ACTIONUTILISATEURSANSARGENT")
+@DiscriminatorValue("SAR")
+
 @NamedQueries({
-@NamedQuery(name = "ActionUtilisateurSansArgent.findAll", query = "SELECT c FROM ActionUtilisateurSansArgent c"),
-@NamedQuery(name = "ActionUtilisateurSansArgent.findByActionUtilisateurSansArgentID", query = "SELECT c FROM ActionUtilisateurSansArgent c WHERE c.actionUtilisateurID = :actionUtilisateurSansArgentID"),
-@NamedQuery(name = "ActionUtilisateurSansArgent.findByActionUtilisateurSansArgentProprietaireID", query = "SELECT c FROM ActionUtilisateurSansArgent c WHERE c.actionUtilisateurProprietaire = :actionUtilisateurSansArgentProprietaire")
+    @NamedQuery(name = "ActionUtilisateurSansArgent.findAll", query = "SELECT c FROM ActionUtilisateurSansArgent c"),
+    @NamedQuery(name = "ActionUtilisateurSansArgent.findByActionUtilisateurSansArgentID", query = "SELECT c FROM ActionUtilisateurSansArgent c WHERE c.actionUtilisateurID = :actionUtilisateurSansArgentID"),
+    @NamedQuery(name = "ActionUtilisateurSansArgent.findByActionUtilisateurSansArgentProprietaireID", query = "SELECT c FROM ActionUtilisateurSansArgent c WHERE c.actionUtilisateurProprietaire = :actionUtilisateurSansArgentProprietaire")
 })
 public class ActionUtilisateurSansArgent extends ActionUtilisateur implements Serializable {
-    
-    /**
-     * héritage depuis ActionUtilisateur 
-     */
-    @OneToOne
-    private ActionUtilisateur actionUtilisateur;
 
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * compte sur lequel l'action sans argent est effectuée
+     */
+    @ManyToOne
+    CompteEpargne actionCompteSansArgent;
+
+    /**
+     *
+     */
     public ActionUtilisateurSansArgent() {
     }
-    private static final long serialVersionUID = 1L;
-  
 
-    
+    /**
+     *
+     * @param actionUtilisateurDate
+     * @param actionUtilisateurTime
+     * @param actionUtilisateurProprietaire
+     * @param actionUtilisateurType
+     * @param actionUtilisateurProprietaireType
+     * @param actionCompteSansArgent
+     */
+    public ActionUtilisateurSansArgent(Date actionUtilisateurDate, Date actionUtilisateurTime, String actionUtilisateurType, String actionUtilisateurProprietaireType, Utilisateur actionUtilisateurProprietaire, CompteEpargne actionCompteSansArgent) {
+
+        super(actionUtilisateurDate, actionUtilisateurTime, actionUtilisateurType, actionUtilisateurProprietaireType, actionUtilisateurProprietaire);
+        this.actionCompteSansArgent = actionCompteSansArgent;
+    }
+
 }

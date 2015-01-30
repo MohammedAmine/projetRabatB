@@ -1,26 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package persistence;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
@@ -28,6 +23,7 @@ import javax.validation.constraints.Size;
  * @author mohammedamine
  */
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @NamedQueries({
     @NamedQuery(name = "Utilisateur.findAll", query = "SELECT u FROM Utilisateur u"),
     @NamedQuery(name = "Utilisateur.findByUtilisateurID", query = "SELECT u FROM Utilisateur u WHERE u.utilisateurID = :utilisateurID"),
@@ -35,10 +31,34 @@ import javax.validation.constraints.Size;
 
 public abstract class Utilisateur implements Serializable {
 
+    /**
+     * constructeur sans paramètres
+     */
     public Utilisateur() {
     }
 
-    private static final long serialVersionUID = 1L;
+    /**
+     * 
+     * @param utilisateurLogin 
+     */
+    public Utilisateur(String utilisateurLogin) {
+        this.utilisateurLogin = utilisateurLogin; 
+       this.utilisateurDateCreation = new Date();
+    }
+    
+    /**
+     * 
+     * @param utilisateurLogin
+     * @param utilisateurType
+     */
+    public Utilisateur(String utilisateurLogin, String utilisateurType) {
+        this.utilisateurLogin = utilisateurLogin; 
+        this.utilisateurType = utilisateurType;
+               
+        this.utilisateurDateCreation = new Date();
+    }
+
+    
     
     /**
      * utilisateur ID
@@ -51,7 +71,8 @@ public abstract class Utilisateur implements Serializable {
     /**
      * utilisateur Login
      */
-    @Size(max = 50)
+    
+    @Size(max = 50,min = 3)
     @Column
     private String utilisateurLogin;
     
@@ -62,18 +83,14 @@ public abstract class Utilisateur implements Serializable {
     @Column
     private Date utilisateurDateCreation;
     
-    
     /**
-     * heritage vers Client
+     * type utilisateur
      */
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "utilisateur")
-    private Client client;
+    @Column
+    private String utilisateurType;
+
+    private static final long serialVersionUID = 1L;
     
-    /**
-     * heritage vers Administrateur
-     */
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "utilisateur")
-    private Administrateur administrateur;
     
     /**
      * 
@@ -90,6 +107,38 @@ public abstract class Utilisateur implements Serializable {
 
     public void setUtilisateurID(int utilisateurID) {
         this.utilisateurID = utilisateurID;
+    }
+
+    public String getUtilisateurLogin() {
+        return utilisateurLogin;
+    }
+
+    public void setUtilisateurLogin(String utilisateurLogin) {
+        this.utilisateurLogin = utilisateurLogin;
+    }
+
+    public Date getUtilisateurDateCreation() {
+        return utilisateurDateCreation;
+    }
+
+    public void setUtilisateurDateCreation(Date utilisateurDateCreation) {
+        this.utilisateurDateCreation = utilisateurDateCreation;
+    }
+
+    public String getUtilisateurType() {
+        return utilisateurType;
+    }
+
+    public void setUtilisateurType(String utilisateurType) {
+        this.utilisateurType = utilisateurType;
+    }
+
+    public List<ActionUtilisateur> getUtilisateurListeActions() {
+        return utilisateurListeActions;
+    }
+
+    public void setUtilisateurListeActions(List<ActionUtilisateur> utilisateurListeActions) {
+        this.utilisateurListeActions = utilisateurListeActions;
     }
     
     

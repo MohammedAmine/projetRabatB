@@ -1,30 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package persistence;
 
-import persistence.Compte;
 import java.io.Serializable;
-import javax.persistence.Basic;
+import java.util.Date;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
- * @author retina
+ * classe CompteEpargne
  */
 @Entity
-@Table(name = "COMPTEEPARGNE")
+@DiscriminatorValue("EPG")
+
 @NamedQueries({
     @NamedQuery(name = "CompteEpargne.findAll", query = "SELECT c FROM CompteEpargne c"),
     @NamedQuery(name = "CompteEpargne.findByCompteEpargneID", query = "SELECT c FROM CompteEpargne c WHERE c.compteID = :compteEpargneID"),
@@ -34,10 +23,29 @@ public class CompteEpargne extends Compte implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * héritage depuis Compte
+     * constructeur sans paramètres
      */
-    @OneToOne
-    Compte compte;
+    public CompteEpargne() {
+        
+    }
+
+    /**
+     *  constructeur pour état, taux journalier, date de création, solde et propriétaire
+     * @param compteEpargneEtat état
+     * @param compteEpargneTauxJournalier taux journalier
+     * @param compteDateCreation date de création
+     * @param compteSolde solde
+     * @param compteProprietaire propriétaire
+     */
+    public CompteEpargne(String compteEpargneEtat, float compteEpargneTauxJournalier, Date compteDateCreation, Float compteSolde, Client compteProprietaire) {
+        
+        super(compteDateCreation, compteSolde, compteProprietaire);
+        
+        this.compteEpargneEtat = compteEpargneEtat;
+        this.compteEpargneTauxJournalier = compteEpargneTauxJournalier;
+    }
+    
+    
 
     /**
      * état du CompteEpargne
@@ -45,14 +53,13 @@ public class CompteEpargne extends Compte implements Serializable {
     @Column
     private String compteEpargneEtat;
 
+    
     /**
      * taux journalier du CompteEpargne
      */
     @Column
     private float compteEpargneTauxJournalier;
 
-    public CompteEpargne() {
-        
-    }
+    
 
 }

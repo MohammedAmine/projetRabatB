@@ -1,36 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package persistence;
 
-import persistence.CompteCourant;
-import persistence.CompteEpargne;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 /**
- *
- * @author mohammedamine
+ * classe Compte
  */
 @Entity
-@Table(name = "COMPTE")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+
 @NamedQueries({
     @NamedQuery(name = "Compte.findAll", query = "SELECT c FROM Compte c"),
     @NamedQuery(name = "Compte.findByCompteID", query = "SELECT c FROM Compte c WHERE c.compteID = :compteID")})
@@ -38,8 +30,27 @@ public class Compte implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
+    /**
+     * constructeur sans paramètres
+     */
     public Compte() {
     }
+
+    /**
+     * constructeur pour date de creation, solde et propriétaire du compte
+     * @param compteDateCreation date de creation
+     * @param compteSolde solde
+     * @param compteProprietaire propriétaire du compte
+     */
+    public Compte(Date compteDateCreation, Float compteSolde,Client compteProprietaire) {
+        
+        this.compteProprietaire=compteProprietaire;
+        
+        this.compteDateCreation = compteDateCreation;
+        this.compteSolde = compteSolde;
+    }
+    
+    
     
     /**
      * ID du compte
@@ -61,19 +72,6 @@ public class Compte implements Serializable {
      */
     @Column
     private Float compteSolde;
-    
-    
-    /**
-     * héritage vers CompteEpargne
-     */
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "compte")
-    private CompteEpargne compteEpargne;
-    
-    /**
-     * héritage vers CompteCourant
-     */
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "compte")
-    private CompteCourant compteCourant;
     
     
     /**

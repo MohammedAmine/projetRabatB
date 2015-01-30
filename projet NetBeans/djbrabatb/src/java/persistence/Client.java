@@ -1,31 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package persistence;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
-import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 /**
- *
- * @author mohammedamine
+ * classe client hérite de la classe Utilisateur
  */
 @Entity
-@Table(name = "CLIENT")
+@DiscriminatorValue("CLI")
+
 @NamedQueries({
     @NamedQuery(name = "Client.findAll", query = "SELECT c FROM Client c"),
     @NamedQuery(name = "Client.findByClientadresse", query = "SELECT c FROM Client c WHERE c.clientAdresse = :clientAdresse"),
@@ -36,38 +27,75 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Client.findByClientID", query = "SELECT c FROM Client c WHERE c.utilisateurID = :utilisateurID")})
 public class Client extends Utilisateur implements Serializable {
     
-    /**
-     * heritage depuis Utilisateur
-     */
-    @OneToOne
-    private Utilisateur utilisateur;
 
+    /**
+     * constructeur sans paramètres
+     */
     public Client() {
     }
-    private static final long serialVersionUID = 1L;
-           
+
+    public Client(String utilisateurLogin) {
+        super(utilisateurLogin);
+    }
+    
+   
+    
+    /**
+     * 
+     * @param clientAdresse
+     * @param clientEmail
+     * @param clientNom
+     * @param clientTelephone
+     * @param clientPrenom
+     * @param utilisateurLogin
+     */
+    public Client(String clientAdresse, String clientEmail, String clientNom, String clientPrenom, String clientTelephone, String utilisateurLogin) {
+        super(utilisateurLogin,"CLIENT");
+        this.clientAdresse = clientAdresse;
+        this.clientEmail = clientEmail;
+        this.clientNom = clientNom;
+        this.clientPrenom = clientPrenom;
+        this.clientTelephone = clientTelephone;
+    }
+    
+    /**
+     * adresse
+     */
     @Size(max = 50)
     private String clientAdresse;
-     
+    
+    /**
+     * email
+     */
     @Size(max = 50)
     private String clientEmail;
     
+    /**
+     * nom
+     */
     @Size(max = 50)
     private String clientNom;
     
+    /**
+     * prénom
+     */
     @Size(max = 50)
     private String clientPrenom;
     
+    /**
+     * téléphone
+     */
     @Size(max = 50)
     private String clientTelephone;
-    
-    
-    
 
-  
+    /**
+     * liste des comptes du client
+     */
     @OneToMany(mappedBy = "compteProprietaire")
     private List<Compte> clientListeComptes;
 
+    
+    private static final long serialVersionUID = 1L;
     
     
 }

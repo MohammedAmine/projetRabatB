@@ -9,4 +9,9 @@
             <var>langages</var>
         </resource-bundle>
     </application>
+    <managed-bean>
+        <managed-bean-name>loginManagedBean</managed-bean-name>
+        <managed-bean-class>jsf.controllers.login.loginManagedBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
 </faces-config>

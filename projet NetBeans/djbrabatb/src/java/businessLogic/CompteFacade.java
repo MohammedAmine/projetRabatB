@@ -16,7 +16,7 @@ import persistence.Compte;
  * @author mohammedamine
  */
 @Stateless
-public class CompteFacade extends AbstractFacade<Compte> implements CompteFacadeLocal {
+public class CompteFacade extends AbstractFacade<Compte> {
     @PersistenceContext(unitName = "djbrabatbPU")
     private EntityManager em;
 
@@ -27,11 +27,6 @@ public class CompteFacade extends AbstractFacade<Compte> implements CompteFacade
 
     public CompteFacade() {
         super(Compte.class);
-    }
-    
-    @Override
-    public void deposerArgentCompte(Compte compteDestination,float depotMontant){
-        
     }
     
 }

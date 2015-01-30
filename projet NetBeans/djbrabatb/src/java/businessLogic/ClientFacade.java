@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package businessLogic;
 
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import persistence.Client;
-import persistence.CompteCourant;
 
 /**
  *
@@ -18,7 +17,6 @@ import persistence.CompteCourant;
  */
 @Stateless
 public class ClientFacade extends AbstractFacade<Client> {
-
     @PersistenceContext(unitName = "djbrabatbPU")
     private EntityManager em;
 
@@ -31,16 +29,4 @@ public class ClientFacade extends AbstractFacade<Client> {
         super(Client.class);
     }
     
-    /**
-     *
-     * @param compteSource
-     * @param compteCible
-     * @param montantTransfert
-     */
-    public void transfererArgent (CompteCourant compteSource,CompteCourant compteCible, float montantTransfert){
-        
-    }
-    
-    
-
 }
