@@ -38,16 +38,21 @@ public class Compte implements Serializable {
 
     /**
      * constructeur pour date de creation, solde et propriétaire du compte
-     * @param compteDateCreation date de creation
      * @param compteSolde solde
      * @param compteProprietaire propriétaire du compte
      */
-    public Compte(Date compteDateCreation, Float compteSolde,Client compteProprietaire) {
+    public Compte( Float compteSolde,Client compteProprietaire) {
         
         this.compteProprietaire=compteProprietaire;
-        
+        this.compteSolde = compteSolde;
+        this.compteDateCreation=new Date();
+    }
+
+    public Compte(Date compteDateCreation, Float compteSolde, Client compteProprietaire, List<ActionUtilisateur> compteListeActionsUtilisateurs) {
         this.compteDateCreation = compteDateCreation;
         this.compteSolde = compteSolde;
+        this.compteProprietaire = compteProprietaire;
+        this.compteListeActionsUtilisateurs = compteListeActionsUtilisateurs;
     }
     
     
@@ -87,6 +92,46 @@ public class Compte implements Serializable {
      */
     @OneToMany(mappedBy = "actionUtilisateurCompte")
     private List<ActionUtilisateur> compteListeActionsUtilisateurs;
+
+    public Integer getCompteID() {
+        return compteID;
+    }
+
+    public void setCompteID(Integer compteID) {
+        this.compteID = compteID;
+    }
+
+    public Date getCompteDateCreation() {
+        return compteDateCreation;
+    }
+
+    public void setCompteDateCreation(Date compteDateCreation) {
+        this.compteDateCreation = compteDateCreation;
+    }
+
+    public Float getCompteSolde() {
+        return compteSolde;
+    }
+
+    public void setCompteSolde(Float compteSolde) {
+        this.compteSolde = compteSolde;
+    }
+
+    public Client getCompteProprietaire() {
+        return compteProprietaire;
+    }
+
+    public void setCompteProprietaire(Client compteProprietaire) {
+        this.compteProprietaire = compteProprietaire;
+    }
+
+    public List<ActionUtilisateur> getCompteListeActionsUtilisateurs() {
+        return compteListeActionsUtilisateurs;
+    }
+
+    public void setCompteListeActionsUtilisateurs(List<ActionUtilisateur> compteListeActionsUtilisateurs) {
+        this.compteListeActionsUtilisateurs = compteListeActionsUtilisateurs;
+    }
     
 
     

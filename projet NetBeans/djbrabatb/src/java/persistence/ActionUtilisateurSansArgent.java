@@ -37,18 +37,49 @@ public class ActionUtilisateurSansArgent extends ActionUtilisateur implements Se
     }
 
     /**
-     *
-     * @param actionUtilisateurDate
-     * @param actionUtilisateurTime
+     * 
      * @param actionUtilisateurProprietaire
      * @param actionUtilisateurType
      * @param actionUtilisateurProprietaireType
      * @param actionCompteSansArgent
      */
-    public ActionUtilisateurSansArgent(Date actionUtilisateurDate, Date actionUtilisateurTime, String actionUtilisateurType, String actionUtilisateurProprietaireType, Utilisateur actionUtilisateurProprietaire, CompteEpargne actionCompteSansArgent) {
+    public ActionUtilisateurSansArgent(String actionUtilisateurType, String actionUtilisateurProprietaireType, Utilisateur actionUtilisateurProprietaire, CompteEpargne actionCompteSansArgent) {
 
-        super(actionUtilisateurDate, actionUtilisateurTime, actionUtilisateurType, actionUtilisateurProprietaireType, actionUtilisateurProprietaire);
+        super(actionUtilisateurType, actionUtilisateurProprietaireType, actionUtilisateurProprietaire);
         this.actionCompteSansArgent = actionCompteSansArgent;
     }
+
+    public ActionUtilisateurSansArgent(String actionUtilisateurType, String actionUtilisateurProprietaireType, Utilisateur actionUtilisateurProprietaire) {
+        super(actionUtilisateurType, actionUtilisateurProprietaireType, actionUtilisateurProprietaire);
+    }
+
+    public ActionUtilisateurSansArgent(String actionUtilisateurProprietaireType) {
+        super(actionUtilisateurProprietaireType);
+    }
+
+    public ActionUtilisateurSansArgent(Compte actionUtilisateurCompte) {
+        super(actionUtilisateurCompte);
+    }
+    
+    
+    
+
+    /**
+     * 
+     * @return 
+     */
+    public CompteEpargne getActionCompteSansArgent() {
+        return actionCompteSansArgent;
+    }
+
+    /**
+     * 
+     * @param actionCompteSansArgent 
+     */
+    public void setActionCompteSansArgent(CompteEpargne actionCompteSansArgent) {
+        this.actionCompteSansArgent = actionCompteSansArgent;
+    }
+    
+    
 
 }

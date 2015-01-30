@@ -9,9 +9,6 @@ package persistence;
 import java.io.Serializable;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 /**
  *
@@ -37,6 +34,15 @@ public class Administrateur extends Utilisateur implements Serializable {
      */
     public Administrateur(String utilisateurLogin) {
         super(utilisateurLogin,"ADMINISTRATEUR");
+    }
+
+    
+    
+
+    
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
     
     

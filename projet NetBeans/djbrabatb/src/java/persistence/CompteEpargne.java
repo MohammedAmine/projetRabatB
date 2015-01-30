@@ -2,6 +2,7 @@ package persistence;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -29,17 +30,28 @@ public class CompteEpargne extends Compte implements Serializable {
         
     }
 
+    public CompteEpargne(String compteEpargneEtat, float compteEpargneTauxJournalier) {
+        this.compteEpargneEtat = compteEpargneEtat;
+        this.compteEpargneTauxJournalier = compteEpargneTauxJournalier;
+    }
+
+
+    public CompteEpargne(String compteEpargneEtat, float compteEpargneTauxJournalier, Date compteDateCreation, Float compteSolde, Client compteProprietaire, List<ActionUtilisateur> compteListeActionsUtilisateurs) {
+        super(compteDateCreation, compteSolde, compteProprietaire, compteListeActionsUtilisateurs);
+        this.compteEpargneEtat = compteEpargneEtat;
+        this.compteEpargneTauxJournalier = compteEpargneTauxJournalier;
+    }
+
     /**
-     *  constructeur pour état, taux journalier, date de création, solde et propriétaire
+     *  constructeur pour état, taux journalier,  solde et propriétaire
      * @param compteEpargneEtat état
      * @param compteEpargneTauxJournalier taux journalier
-     * @param compteDateCreation date de création
      * @param compteSolde solde
      * @param compteProprietaire propriétaire
      */
-    public CompteEpargne(String compteEpargneEtat, float compteEpargneTauxJournalier, Date compteDateCreation, Float compteSolde, Client compteProprietaire) {
+    public CompteEpargne(String compteEpargneEtat, float compteEpargneTauxJournalier, Float compteSolde, Client compteProprietaire) {
         
-        super(compteDateCreation, compteSolde, compteProprietaire);
+        super( compteSolde, compteProprietaire);
         
         this.compteEpargneEtat = compteEpargneEtat;
         this.compteEpargneTauxJournalier = compteEpargneTauxJournalier;
@@ -59,6 +71,38 @@ public class CompteEpargne extends Compte implements Serializable {
      */
     @Column
     private float compteEpargneTauxJournalier;
+
+    /**
+     * 
+     * @return 
+     */
+    public String getCompteEpargneEtat() {
+        return compteEpargneEtat;
+    }
+
+    /**
+     * 
+     * @param compteEpargneEtat
+     */
+    public void setCompteEpargneEtat(String compteEpargneEtat) {
+        this.compteEpargneEtat = compteEpargneEtat;
+    }
+
+    /**
+     * 
+     * @return 
+     */
+    public float getCompteEpargneTauxJournalier() {
+        return compteEpargneTauxJournalier;
+    }
+
+    /**
+     * 
+     * @param compteEpargneTauxJournalier
+     */
+    public void setCompteEpargneTauxJournalier(float compteEpargneTauxJournalier) {
+        this.compteEpargneTauxJournalier = compteEpargneTauxJournalier;
+    }
 
     
 

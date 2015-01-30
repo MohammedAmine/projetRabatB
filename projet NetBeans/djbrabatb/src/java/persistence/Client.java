@@ -2,7 +2,6 @@
 package persistence;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -57,6 +56,39 @@ public class Client extends Utilisateur implements Serializable {
         this.clientPrenom = clientPrenom;
         this.clientTelephone = clientTelephone;
     }
+
+    public Client(String clientAdresse, String clientEmail, String clientNom, String clientPrenom, String clientTelephone, List<Compte> clientListeComptes) {
+        this.clientAdresse = clientAdresse;
+        this.clientEmail = clientEmail;
+        this.clientNom = clientNom;
+        this.clientPrenom = clientPrenom;
+        this.clientTelephone = clientTelephone;
+        this.clientListeComptes = clientListeComptes;
+    }
+
+    public Client(String clientAdresse, String clientEmail, String clientNom, String clientPrenom, String clientTelephone, List<Compte> clientListeComptes, String utilisateurLogin) {
+        super(utilisateurLogin);
+        this.clientAdresse = clientAdresse;
+        this.clientEmail = clientEmail;
+        this.clientNom = clientNom;
+        this.clientPrenom = clientPrenom;
+        this.clientTelephone = clientTelephone;
+        this.clientListeComptes = clientListeComptes;
+    }
+
+    public Client(String clientAdresse, String clientEmail, String clientNom, String clientPrenom, String clientTelephone, List<Compte> clientListeComptes, String utilisateurLogin, String utilisateurType) {
+        super(utilisateurLogin, utilisateurType);
+        this.clientAdresse = clientAdresse;
+        this.clientEmail = clientEmail;
+        this.clientNom = clientNom;
+        this.clientPrenom = clientPrenom;
+        this.clientTelephone = clientTelephone;
+        this.clientListeComptes = clientListeComptes;
+    }
+
+    
+    
+    
     
     /**
      * adresse
@@ -96,6 +128,56 @@ public class Client extends Utilisateur implements Serializable {
 
     
     private static final long serialVersionUID = 1L;
+
+    public String getClientAdresse() {
+        return clientAdresse;
+    }
+
+    public void setClientAdresse(String clientAdresse) {
+        this.clientAdresse = clientAdresse;
+    }
+
+    public String getClientEmail() {
+        return clientEmail;
+    }
+
+    public void setClientEmail(String clientEmail) {
+        this.clientEmail = clientEmail;
+    }
+
+    public String getClientNom() {
+        return clientNom;
+    }
+
+    public void setClientNom(String clientNom) {
+        this.clientNom = clientNom;
+    }
+
+    public String getClientPrenom() {
+        return clientPrenom;
+    }
+
+    public void setClientPrenom(String clientPrenom) {
+        this.clientPrenom = clientPrenom;
+    }
+
+    public String getClientTelephone() {
+        return clientTelephone;
+    }
+
+    public void setClientTelephone(String clientTelephone) {
+        this.clientTelephone = clientTelephone;
+    }
+
+    public List<Compte> getClientListeComptes() {
+        return clientListeComptes;
+    }
+
+    public void setClientListeComptes(List<Compte> clientListeComptes) {
+        this.clientListeComptes = clientListeComptes;
+    }
+    
+    
     
     
 }

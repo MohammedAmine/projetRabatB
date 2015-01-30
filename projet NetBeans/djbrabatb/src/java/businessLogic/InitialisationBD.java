@@ -20,9 +20,6 @@ public class InitialisationBD {
     @EJB
     private AdministrateurFacade administrateurFacade;
     
-    
-   
-
     /**
      * injection ejb client
      */

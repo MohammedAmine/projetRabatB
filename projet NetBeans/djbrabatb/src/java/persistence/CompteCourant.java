@@ -3,6 +3,7 @@ package persistence;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
@@ -28,18 +29,23 @@ public class CompteCourant extends Compte implements Serializable {
     public CompteCourant() {
     }
 
-    /**
-     * constructeur pour date de création, solde, et propriétaire
-     * @param compteDateCreation date de création
-     * @param compteSolde solde
-     * @param compteProprietaire propiétaire
-     */
-    public CompteCourant(Date compteDateCreation, Float compteSolde,Client compteProprietaire) {
-        
-        super(compteDateCreation, compteSolde, compteProprietaire);
+
+    public CompteCourant(Date compteDateCreation, Float compteSolde, Client compteProprietaire, List<ActionUtilisateur> compteListeActionsUtilisateurs) {
+        super(compteDateCreation, compteSolde, compteProprietaire, compteListeActionsUtilisateurs);
     }
     
     
+
+    /**
+     * constructeur pour date de création, solde, et propriétaire
+     * @param compteSolde solde
+     * @param compteProprietaire propiétaire
+     */
+    public CompteCourant(Float compteSolde,Client compteProprietaire) {
+        
+        super(compteSolde, compteProprietaire);
+    }
     
+        
 
 }

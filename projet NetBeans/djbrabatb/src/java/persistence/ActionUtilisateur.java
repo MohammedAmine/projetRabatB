@@ -37,23 +37,85 @@ public abstract class ActionUtilisateur implements Serializable {
      */
     public ActionUtilisateur() {
     }
-    
+
     /**
-     * 
+     *
+     * @param actionUtilisateurID
+     * @param actionUtilisateurType
+     * @param actionUtilisateurProprietaireType
+     * @param actionUtilisateurProprietaire
+     * @param actionUtilisateurCompte
+     */
+    public ActionUtilisateur(int actionUtilisateurID, String actionUtilisateurType, String actionUtilisateurProprietaireType, Utilisateur actionUtilisateurProprietaire, Compte actionUtilisateurCompte) {
+        this.actionUtilisateurID = actionUtilisateurID;
+        this.actionUtilisateurType = actionUtilisateurType;
+        this.actionUtilisateurProprietaireType = actionUtilisateurProprietaireType;
+        this.actionUtilisateurProprietaire = actionUtilisateurProprietaire;
+        this.actionUtilisateurCompte = actionUtilisateurCompte;
+    }
+
+    /**
+     *
      * @param actionUtilisateurDate
      * @param actionUtilisateurTime
      * @param actionUtilisateurType
      * @param actionUtilisateurProprietaireType
      * @param actionUtilisateurProprietaire
+     * @param actionUtilisateurCompte
      */
-    public ActionUtilisateur(Date actionUtilisateurDate, Date actionUtilisateurTime, String actionUtilisateurType, String actionUtilisateurProprietaireType, Utilisateur actionUtilisateurProprietaire) {
-        
+    public ActionUtilisateur(Date actionUtilisateurDate, Date actionUtilisateurTime, String actionUtilisateurType, String actionUtilisateurProprietaireType, Utilisateur actionUtilisateurProprietaire, Compte actionUtilisateurCompte) {
         this.actionUtilisateurDate = actionUtilisateurDate;
         this.actionUtilisateurTime = actionUtilisateurTime;
         this.actionUtilisateurType = actionUtilisateurType;
         this.actionUtilisateurProprietaireType = actionUtilisateurProprietaireType;
         this.actionUtilisateurProprietaire = actionUtilisateurProprietaire;
+        this.actionUtilisateurCompte = actionUtilisateurCompte;
     }
+    
+    
+    /**
+     * 
+     * @param actionUtilisateurType
+     * @param actionUtilisateurProprietaireType
+     * @param actionUtilisateurProprietaire
+     */
+    public ActionUtilisateur(String actionUtilisateurType, String actionUtilisateurProprietaireType, Utilisateur actionUtilisateurProprietaire) {
+        
+        this.actionUtilisateurDate = new Date();
+        this.actionUtilisateurTime = new Date();
+        this.actionUtilisateurType = actionUtilisateurType;
+        this.actionUtilisateurProprietaireType = actionUtilisateurProprietaireType;
+        this.actionUtilisateurProprietaire = actionUtilisateurProprietaire;
+    }
+    
+    
+    /**
+     *
+     * @param actionUtilisateurProprietaireType
+     */
+    public ActionUtilisateur(String actionUtilisateurProprietaireType) {
+        this.actionUtilisateurProprietaireType = actionUtilisateurProprietaireType;
+    }
+
+    /**
+     *
+     * @param actionUtilisateurProprietaire
+     */
+    public ActionUtilisateur(Utilisateur actionUtilisateurProprietaire) {
+        this.actionUtilisateurProprietaire = actionUtilisateurProprietaire;
+    }
+
+    /**
+     *
+     * @param actionUtilisateurCompte
+     */
+    public ActionUtilisateur(Compte actionUtilisateurCompte) {
+        this.actionUtilisateurCompte = actionUtilisateurCompte;
+    }
+
+ 
+
+    
 
     
     /**
@@ -103,7 +165,55 @@ public abstract class ActionUtilisateur implements Serializable {
      * 
      */
     @ManyToOne
-    Compte actionUtilisateurCompte;
+    private Compte actionUtilisateurCompte;
+
+    public Date getActionUtilisateurDate() {
+        return actionUtilisateurDate;
+    }
+
+    public void setActionUtilisateurDate(Date actionUtilisateurDate) {
+        this.actionUtilisateurDate = actionUtilisateurDate;
+    }
+
+    public Date getActionUtilisateurTime() {
+        return actionUtilisateurTime;
+    }
+
+    public void setActionUtilisateurTime(Date actionUtilisateurTime) {
+        this.actionUtilisateurTime = actionUtilisateurTime;
+    }
+
+    public String getActionUtilisateurType() {
+        return actionUtilisateurType;
+    }
+
+    public void setActionUtilisateurType(String actionUtilisateurType) {
+        this.actionUtilisateurType = actionUtilisateurType;
+    }
+
+    public String getActionUtilisateurProprietaireType() {
+        return actionUtilisateurProprietaireType;
+    }
+
+    public void setActionUtilisateurProprietaireType(String actionUtilisateurProprietaireType) {
+        this.actionUtilisateurProprietaireType = actionUtilisateurProprietaireType;
+    }
+
+    public Utilisateur getActionUtilisateurProprietaire() {
+        return actionUtilisateurProprietaire;
+    }
+
+    public void setActionUtilisateurProprietaire(Utilisateur actionUtilisateurProprietaire) {
+        this.actionUtilisateurProprietaire = actionUtilisateurProprietaire;
+    }
+
+    public Compte getActionUtilisateurCompte() {
+        return actionUtilisateurCompte;
+    }
+
+    public void setActionUtilisateurCompte(Compte actionUtilisateurCompte) {
+        this.actionUtilisateurCompte = actionUtilisateurCompte;
+    }
     
     
     

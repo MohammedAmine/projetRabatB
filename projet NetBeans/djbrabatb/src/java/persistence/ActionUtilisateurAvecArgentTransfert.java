@@ -2,7 +2,6 @@
 package persistence;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
@@ -23,11 +22,43 @@ public class ActionUtilisateurAvecArgentTransfert extends ActionUtilisateurAvecA
     public ActionUtilisateurAvecArgentTransfert() {
     }
 
-    public ActionUtilisateurAvecArgentTransfert(Compte actionAvecArgentTransfertCompteFROM, Compte actionAvecArgentTransfertCompteTO, float ActionUtilisateurAvecArgentMontant, Date actionUtilisateurDate, Date actionUtilisateurTime, String actionUtilisateurType, String actionUtilisateurProprietaireType, Utilisateur actionUtilisateurProprietaire) {
-        super(ActionUtilisateurAvecArgentMontant, actionUtilisateurDate, actionUtilisateurTime, actionUtilisateurType, actionUtilisateurProprietaireType, actionUtilisateurProprietaire);
+    /**
+     *
+     * @param actionAvecArgentTransfertCompteFROM
+     * @param actionAvecArgentTransfertCompteTO
+     * @param ActionUtilisateurAvecArgentMontant
+     * @param actionUtilisateurType
+     * @param actionUtilisateurProprietaireType
+     * @param actionUtilisateurProprietaire
+     */
+    public ActionUtilisateurAvecArgentTransfert(Compte actionAvecArgentTransfertCompteFROM, Compte actionAvecArgentTransfertCompteTO, float ActionUtilisateurAvecArgentMontant, String actionUtilisateurType, String actionUtilisateurProprietaireType, Utilisateur actionUtilisateurProprietaire) {
+        super(ActionUtilisateurAvecArgentMontant,  actionUtilisateurType, actionUtilisateurProprietaireType, actionUtilisateurProprietaire);
         this.actionAvecArgentTransfertCompteFROM = actionAvecArgentTransfertCompteFROM;
         this.actionAvecArgentTransfertCompteTO = actionAvecArgentTransfertCompteTO;
     }
+    
+    /**
+     * 
+     * @param actionAvecArgentTransfertCompteFROM
+     */
+    public ActionUtilisateurAvecArgentTransfert(Compte actionAvecArgentTransfertCompteFROM, Compte actionAvecArgentTransfertCompteTO) {
+        this.actionAvecArgentTransfertCompteFROM = actionAvecArgentTransfertCompteFROM;
+        this.actionAvecArgentTransfertCompteTO = actionAvecArgentTransfertCompteTO;
+    }
+
+    public ActionUtilisateurAvecArgentTransfert(String actionUtilisateurProprietaireType) {
+        super(actionUtilisateurProprietaireType);
+    }
+
+    public ActionUtilisateurAvecArgentTransfert(Utilisateur actionUtilisateurProprietaire) {
+        super(actionUtilisateurProprietaire);
+    }
+
+    public ActionUtilisateurAvecArgentTransfert(Compte actionUtilisateurCompte) {
+        super(actionUtilisateurCompte);
+    }
+
+    
     
     
     /**
@@ -41,6 +72,23 @@ public class ActionUtilisateurAvecArgentTransfert extends ActionUtilisateurAvecA
      */
     @OneToOne
     private Compte actionAvecArgentTransfertCompteTO;
+
+    public Compte getActionAvecArgentTransfertCompteFROM() {
+        return actionAvecArgentTransfertCompteFROM;
+    }
+
+    public void setActionAvecArgentTransfertCompteFROM(Compte actionAvecArgentTransfertCompteFROM) {
+        this.actionAvecArgentTransfertCompteFROM = actionAvecArgentTransfertCompteFROM;
+    }
+
+    public Compte getActionAvecArgentTransfertCompteTO() {
+        return actionAvecArgentTransfertCompteTO;
+    }
+
+    public void setActionAvecArgentTransfertCompteTO(Compte actionAvecArgentTransfertCompteTO) {
+        this.actionAvecArgentTransfertCompteTO = actionAvecArgentTransfertCompteTO;
+    }
+    
     
     
     

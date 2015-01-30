@@ -37,6 +37,13 @@ public abstract class Utilisateur implements Serializable {
     public Utilisateur() {
     }
 
+    public Utilisateur(String utilisateurLogin, String utilisateurType, List<ActionUtilisateur> utilisateurListeActions) {
+        this.utilisateurLogin = utilisateurLogin;
+        this.utilisateurType = utilisateurType;
+        this.utilisateurListeActions = utilisateurListeActions;
+    }
+    
+
     /**
      * 
      * @param utilisateurLogin 

@@ -29,23 +29,64 @@ public abstract class ActionUtilisateurAvecArgent extends ActionUtilisateur impl
     /**
      * 
      * @param ActionUtilisateurAvecArgentMontant
-     * @param actionUtilisateurDate
-     * @param actionUtilisateurTime
      * @param actionUtilisateurType
      * @param actionUtilisateurProprietaireType
      * @param actionUtilisateurProprietaire
      */
-    public ActionUtilisateurAvecArgent(float ActionUtilisateurAvecArgentMontant, Date actionUtilisateurDate, Date actionUtilisateurTime, String actionUtilisateurType, String actionUtilisateurProprietaireType, Utilisateur actionUtilisateurProprietaire) {
+    public ActionUtilisateurAvecArgent(float ActionUtilisateurAvecArgentMontant, String actionUtilisateurType, String actionUtilisateurProprietaireType, Utilisateur actionUtilisateurProprietaire) {
        
-        super(actionUtilisateurDate, actionUtilisateurTime, actionUtilisateurType, actionUtilisateurProprietaireType, actionUtilisateurProprietaire);
+        super( actionUtilisateurType, actionUtilisateurProprietaireType, actionUtilisateurProprietaire);
         
         this.ActionUtilisateurAvecArgentMontant = ActionUtilisateurAvecArgentMontant;
     }
 
     /**
+     * 
+     * @param ActionUtilisateurAvecArgentMontant
+     * @param actionUtilisateurID
+     * @param actionUtilisateurType
+     * @param actionUtilisateurProprietaireType
+     * @param actionUtilisateurProprietaire
+     * @param actionUtilisateurCompte
+     */
+    public ActionUtilisateurAvecArgent(float ActionUtilisateurAvecArgentMontant, int actionUtilisateurID, String actionUtilisateurType, String actionUtilisateurProprietaireType, Utilisateur actionUtilisateurProprietaire, Compte actionUtilisateurCompte) {
+        super(actionUtilisateurID, actionUtilisateurType, actionUtilisateurProprietaireType, actionUtilisateurProprietaire, actionUtilisateurCompte);
+        this.ActionUtilisateurAvecArgentMontant = ActionUtilisateurAvecArgentMontant;
+    }
+
+    public ActionUtilisateurAvecArgent(String actionUtilisateurProprietaireType) {
+        super(actionUtilisateurProprietaireType);
+    }
+
+    public ActionUtilisateurAvecArgent(Utilisateur actionUtilisateurProprietaire) {
+        super(actionUtilisateurProprietaire);
+    }
+
+    public ActionUtilisateurAvecArgent(Compte actionUtilisateurCompte) {
+        super(actionUtilisateurCompte);
+    }
+    
+    /**
      * montant
      */
     private float ActionUtilisateurAvecArgentMontant;
+
+    /**
+     * 
+     * @return 
+     */
+    public float getActionUtilisateurAvecArgentMontant() {
+        return ActionUtilisateurAvecArgentMontant;
+    }
+
+    /**
+     * 
+     * @param ActionUtilisateurAvecArgentMontant 
+     */
+    public void setActionUtilisateurAvecArgentMontant(float ActionUtilisateurAvecArgentMontant) {
+        this.ActionUtilisateurAvecArgentMontant = ActionUtilisateurAvecArgentMontant;
+    }
+    
     
 
 }
