@@ -30,20 +30,22 @@
     float: left;
     background-color: #ece3a5;
     padding: 5px;
-    width: 200px;
-    height: 100px
+    width: 180px;
+    height: 500px
 }
+
+
 
 #right {
     float: right;
     background-color: #ece3a5;
     padding: 5px;
-    width: 200px;
-    height: 100px
+    width: 180px;
+    height: 500px
 }
 
 #content{
-    height: 100px
+    height: 500px
 }
 
 .center_content {
@@ -75,3 +77,10 @@
 }
 
 
+#formLogin{
+    
+}
+
+.contentLogin{
+    height: 200px
+}

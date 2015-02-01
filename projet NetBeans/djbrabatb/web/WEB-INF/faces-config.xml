@@ -9,9 +9,30 @@
             <var>langages</var>
         </resource-bundle>
     </application>
+    
     <managed-bean>
         <managed-bean-name>loginManagedBean</managed-bean-name>
-        <managed-bean-class>jsf.controllers.login.loginManagedBean</managed-bean-class>
+        <managed-bean-class>jsf.controllers.login.LoginManagedBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>clientsTDBManagedBean</managed-bean-name>
+        <managed-bean-class>jsf.controllers.tableauDeBord.clientsTDBManagedBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>acceuilClientManagedBean</managed-bean-name>
+        <managed-bean-class>jsf.controllers.acceuil.AcceuilClientManagedBean</managed-bean-class>
+    
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+        
+    <managed-bean>        
+        <managed-bean-name>acceuilAdministrateurManagedBeand</managed-bean-name>
+        <managed-bean-class>jsf.controllers.acceuil.AcceuilAdministrateurManagedBeand</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
 </faces-config>

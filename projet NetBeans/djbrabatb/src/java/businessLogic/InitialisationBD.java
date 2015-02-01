@@ -15,19 +15,18 @@ import persistence.Client;
 @Singleton
 @Startup
 public class InitialisationBD {
-    @EJB
-    private ClientFacade clientFacade;
-    @EJB
-    private AdministrateurFacade administrateurFacade;
-    
+  
     /**
      * injection ejb client
      */
-     
+    @EJB
+    private ClientFacade clientFacade;
      
      /**
       * injection ejb administrateur
       */
+    @EJB
+    private AdministrateurFacade administrateurFacade;
     
 
     /**
@@ -62,6 +61,11 @@ public class InitialisationBD {
         }
         
         System.out.println("Creation des administrateurs (3) SUCCESS");
+        
+        //créer des comptes
+        //crees des depots 
+        //creer des retrait
+        //creer des transferts
         
         System.out.println("InitialiserBD() terminée");
 

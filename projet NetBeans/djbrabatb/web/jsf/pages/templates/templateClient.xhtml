@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -16,16 +17,45 @@
         <div id="top">
             <ui:insert name="top">Acceuil Client</ui:insert>
             <div id="deconnexion">
+                <ui:insert name="enTantQue">en_tant_que</ui:insert>
                 <h:link outcome="/login" value="Déconnexion" />
             </div>
         </div>
         <div>
             <div id="left">
-                <ui:insert name="left">Menu client gauche</ui:insert>
+                <h:form id="menuForm">
+                    <p:menu>
+                        
+                        <p:submenu label="Mes comptes" />
+                            <p:menuitem  outcome="/jsf/pages/acceuil/acceuilClient" value="Mes Comptes Courants" />
+                            <p:menuitem  outcome="/jsf/pages/acceuil/acceuilClient" value="Mes Comptes Epargnes" />
+                        <p:submenu/>
+
+                        <p:submenu label="Effectuer une transaction" />
+                            <p:menuitem  outcome="/jsf/pages/acceuil/acceuilClient" value="Effectuer un dépot" />
+                            <p:menuitem  outcome="/jsf/pages/acceuil/acceuilClient" value="Effectuer un retrait" />
+                            <p:menuitem  outcome="/jsf/pages/acceuil/acceuilClient" value="Effectuer un transfert" />
+                        <p:submenu/>
+
+                        <p:submenu label="Mon Historique">
+                            <p:menuitem  outcome="/jsf/pages/acceuil/acceuilClient" value="Voir mes transactions" />
+                            <p:menuitem  outcome="/jsf/pages/acceuil/acceuilClient" value="Voir toutes les transactions" />
+                        </p:submenu>
+                        
+                    </p:menu>
+                </h:form>
+
             </div>
             <div>
                 <div id="right">
-                    <ui:insert name="right">Menu client droit</ui:insert>
+                    <h:form id="menuForm1">
+                        <p:menu>
+                                <p:submenu label="Mon Profil">  
+                                        <p:menuitem  outcome="/jsf/pages/acceuil/acceuilClient" value="Voir mon profil" />
+                                        <p:menuitem  outcome="/jsf/pages/acceuil/acceuilClient" value="Editer mon profil" />
+                                </p:submenu>
+                        </p:menu>
+                    </h:form>
                 </div>
                 <div id="content" class="right_content">
                     <ui:insert name="content">contenu acceuil</ui:insert>
