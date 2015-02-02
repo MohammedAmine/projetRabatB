@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
@@ -18,7 +19,7 @@ import persistence.Client;
  *
  */
 @Named("loginManagedBean")
-@RequestScoped
+@SessionScoped
 public class LoginManagedBean implements Serializable {
 
     /**
@@ -98,6 +99,7 @@ public class LoginManagedBean implements Serializable {
         if ("ADMINISTRATEUR".equals(this.requesterUtilisateurType)) {
 
             List<Administrateur> listeAdministrateurs = (List<Administrateur>) administrateurFacade.getEntityManager().createQuery("select a from Administrateur a where a.utilisateurLogin=:requesterUtilisateurLogin").setParameter("requesterUtilisateurLogin", requesterUtilisateurLogin).getResultList();
+            
 
             if (!listeAdministrateurs.isEmpty()) {
 
