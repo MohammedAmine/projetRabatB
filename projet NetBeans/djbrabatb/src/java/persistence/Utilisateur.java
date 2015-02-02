@@ -4,8 +4,10 @@ package persistence;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -103,7 +105,7 @@ public abstract class Utilisateur implements Serializable {
      * 
      * liste des actions de l'utilisateur 
      */
-    @OneToMany(mappedBy = "actionUtilisateurProprietaire")
+    @OneToMany(mappedBy = "actionUtilisateurProprietaire",cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private List<ActionUtilisateur> utilisateurListeActions;
     
     

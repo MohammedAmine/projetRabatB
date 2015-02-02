@@ -3,9 +3,14 @@ package persistence;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -61,6 +66,7 @@ public class Compte implements Serializable {
      * ID du compte
      */
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
     @Column
     private Integer compteID;
@@ -90,7 +96,7 @@ public class Compte implements Serializable {
      * 
      * liste des actions su le compte 
      */
-    @OneToMany(mappedBy = "actionUtilisateurCompte")
+    @OneToMany(mappedBy = "actionUtilisateurCompte",cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
     private List<ActionUtilisateur> compteListeActionsUtilisateurs;
 
     public Integer getCompteID() {

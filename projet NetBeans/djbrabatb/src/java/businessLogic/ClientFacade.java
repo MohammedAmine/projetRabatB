@@ -28,5 +28,9 @@ public class ClientFacade extends AbstractFacade<Client> {
     public ClientFacade() {
         super(Client.class);
     }
+
+    void enregistrerClient(Client client) {
+       this.getEntityManager().persist(client);
+    }
     
 }

@@ -3,10 +3,15 @@
               xmlns="http://xmlns.jcp.org/xml/ns/javaee"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    
     <application>
+        <locale-config>
+            <default-locale>fr</default-locale>
+            <supported-locale>en</supported-locale>
+        </locale-config>
         <resource-bundle>
-            <base-name>/langages</base-name>
-            <var>langages</var>
+            <base-name>/messages_fr_FR</base-name>
+            <var>msg</var>
         </resource-bundle>
     </application>
     
@@ -14,12 +19,6 @@
         <managed-bean-name>loginManagedBean</managed-bean-name>
         <managed-bean-class>jsf.controllers.login.LoginManagedBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
-    </managed-bean>
-    
-    <managed-bean>
-        <managed-bean-name>clientsTDBManagedBean</managed-bean-name>
-        <managed-bean-class>jsf.controllers.tableauDeBord.clientsTDBManagedBean</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     
     <managed-bean>

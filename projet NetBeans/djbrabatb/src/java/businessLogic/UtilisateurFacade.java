@@ -20,6 +20,10 @@ public class UtilisateurFacade extends AbstractFacade<Utilisateur> {
     @PersistenceContext(unitName = "djbrabatbPU")
     private EntityManager em;
 
+    /**
+     *
+     * @return
+     */
     @Override
     public EntityManager getEntityManager() {
         return em;

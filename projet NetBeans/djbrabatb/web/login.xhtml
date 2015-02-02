@@ -6,39 +6,36 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <f:metadata>
-        <f:viewParam name="utilisateurLogedID" 
-                     value="#{loginManagedBean.utilisateurLogedID}" />
-    </f:metadata>
-    
     <body>
-        <ui:composition template="./templateLogin.xhtml">
-            
+        <ui:composition template="./jsf/pages/templates/templateLogin.xhtml">
+
             <ui:define name="content">
-                
+
                 <h:form id="formLogin">
-                    
-                    <h:panelGrid columns="3">
-                        <p:outputLabel value="Type connexion : " for="typeSelectOne"/>
-                        <h:selectOneMenu id="typeSelectOne" label="Type" value="#{loginManagedBean.requesterUtilisateurType}">
-                            <f:selectItem itemLabel="Client" itemValue="CLIENT"/>
-                            <f:selectItem itemLabel="Administrateur" itemValue="ADMINISTRATEUR"/>
-                        </h:selectOneMenu>
-                        <h:message for="typeSelectOne" showSummary="true" showDetail="true" />
-                    </h:panelGrid>
-                    
-                    <h:panelGrid columns="3">
-                        <p:outputLabel for="loginInputText" value="Entrez votre Login : "/>
-                        <p:inputText id="loginInputText"  label="loginInputText" required="true" requiredMessage="Veuillez entrez votre login" value="#{loginManagedBean.requesterUtilisateurLogin}"/>
-                        <h:message for="loginInputText" />
-                    </h:panelGrid>
-                    
-                    <h:commandButton  value="Log In" action="#{loginManagedBean.logIn()}"/>
-                    
+                    <div>
+                        <div>
+                            <p:outputLabel value="#{msg.typeDeConnexionLabel}" for="typeSelectOne"/>
+                            <h:selectOneMenu id="typeSelectOne" label="Type" value="#{loginManagedBean.requesterUtilisateurType}">
+                                <f:selectItem itemLabel="#{msg.clientLabel}" itemValue="CLIENT"/>
+                                <f:selectItem itemLabel="#{msg.administrateurLabet}" itemValue="ADMINISTRATEUR"/>
+                            </h:selectOneMenu>
+                            <h:message for="typeSelectOne" showSummary="true" showDetail="true" />
+                        </div>
+
+                        <div>
+                            <p:outputLabel for="loginInputText" value="Entrez votre Login : "/>
+                            <p:inputText id="loginInputText"  label="loginInputText"   value="#{loginManagedBean.requesterUtilisateurLogin}"/>
+                            <h:message for="loginInputText"/>
+                        </div>
+
+                        <div>
+                            <h:commandButton  value="#{msg.seConnecterBouton}" action="#{loginManagedBean.logIn()}"/>
+                        </div>
+                    </div>
                 </h:form>
-                
+
             </ui:define>
-            
+
         </ui:composition>
 
     </body>

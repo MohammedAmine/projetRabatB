@@ -5,20 +5,12 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <f:metadata>
-        <f:viewParam name="utilisateurLogedID" value="#{acceuilClientManagedBean.utilisateurLogedID}"/>        
-        <f:viewAction action="#{acceuilClientManagedBean.getCli()}"/>
-    </f:metadata>
-    
-    
-    
-        <ui:composition template="./../templates/templateClient.xhtml">
+    <ui:composition template="./../templates/templateClient.xhtml">
 
-            <ui:define name="enTantQue">
-                Connecté en tant que : <h:outputText  value="#{acceuilClientManagedBean.utilisateurLogedNom}"/>
-            </ui:define>
+        <ui:define name="content">
             
+        </ui:define>
 
-        </ui:composition>
+    </ui:composition>
 
 </html>

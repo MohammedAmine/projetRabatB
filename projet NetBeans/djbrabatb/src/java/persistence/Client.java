@@ -3,8 +3,10 @@ package persistence;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -123,7 +125,7 @@ public class Client extends Utilisateur implements Serializable {
     /**
      * liste des comptes du client
      */
-    @OneToMany(mappedBy = "compteProprietaire")
+    @OneToMany(mappedBy = "compteProprietaire",cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
     private List<Compte> clientListeComptes;
 
     
