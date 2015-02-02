@@ -20,7 +20,9 @@ import persistence.Client;
  */
 @Named("loginManagedBean")
 @SessionScoped
-public class LoginManagedBean implements Serializable {
+public class LoginManagedBean implements Serializable { 
+    
+    
 
     /**
      *
