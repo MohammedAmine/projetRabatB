@@ -2,6 +2,7 @@
 package persistence;
 
 import java.io.Serializable;
+import java.util.LinkedList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
@@ -126,7 +127,7 @@ public class Client extends Utilisateur implements Serializable {
      * liste des comptes du client
      */
     @OneToMany(mappedBy = "compteProprietaire",cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
-    private List<Compte> clientListeComptes;
+    private List<Compte> clientListeComptes= new LinkedList<>();
 
     
     private static final long serialVersionUID = 1L;

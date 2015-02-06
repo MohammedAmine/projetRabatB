@@ -9,28 +9,27 @@
 ================================================================================================================================
 
 
-	The project contained in this archive consist in an online banking system developed for the Java Entreprise Edition course
+	The project contained in this archive consist in an on-line banking system developed for the Java Enterprise Edition course
 with M. Richard Grin.
 
-Le contenu de l'archive est le suivant :
+The archive content is listed below :
 
 -- projetRabatB-|
                 |-- Documentation-|
-			    |                 |-- Javadoc ==> la javadoc du projet
-			    |                 |-- Bugs.pdf ==> un tableau des bugs de l'application
-			    |                 |-- Guide-programmation.pdf ==> un guide pour les développeurs
-				|                 |-- Guide-utilisateur.pdf ==> un guide pour les utilisateurs
-				|                 |-- Quifaitquoi.pdf ==> contient la répartition des tâches 
+			    |                 |-- Javadoc ==> project javadoc
+			    |                 |-- Bugs.pdf ==> contains a list of issues and bugs encountered during project life cycle
+			    |                 |-- Guide-programmation.pdf ==> programmer guide
+				|                 |-- Guide-utilisateur.pdf ==> user guide
+				|                 |-- Quifaitquoi.pdf ==> tasks repartition and responsibilities 
 			    |
 				|
 				|-- Projet NetBeans-|
-				                    |-- djbrabatb ==> le projet netbeans 
+				                    |-- djbrabatb ==> NetBeans project folder
 									
-	Pour ouvrir le projet dans netbeans, le déployer sur glassfish et l'utiliser depuis votre navigateur, veuilliez vous référez
-au fichier Guide-utilisateur.pdf.
+	To open our projet in NetBeans, deploy it on Glassfish server and run it, please refer to Guide-utilisateur.pdf.
 	
-	Pour la documentation technique, veuilliez ouvrir le fichier Guide-programmation.pdf.
+	For technical documentation, please refer to Guide-programmation.pdf.
 	
 ================================================================================================================================
-                                                            FIN
+                                                            END
 ================================================================================================================================
